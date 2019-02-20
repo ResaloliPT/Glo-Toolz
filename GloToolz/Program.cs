@@ -1,5 +1,7 @@
-﻿using GloToolz.UI.Forms;
+﻿using GloToolz.Http;
+using GloToolz.UI.Forms;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace GloToolz
@@ -12,9 +14,30 @@ namespace GloToolz
         [STAThread]
         public static void Main()
         {
+            EncryptConfigSettings();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            OAuth.Authenticate();
+
             Application.Run(new Login());
+        }
+
+        private static void EncryptConfigSettings()
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var section = config.GetSection("appSettings");
+            if (section != null)
+            {
+                if (!section.SectionInformation.IsProtected)
+                {
+                    if (!section.ElementInformation.IsLocked)
+                    {
+                        section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
+                        section.SectionInformation.ForceSave = true;
+                        //config.Save(ConfigurationSaveMode.Full);
+                    }
+                }
+            }
         }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloToolz.Main", "GloToolz\GloToolz.Main.csproj", "{6A17B58C-06D5-444F-B842-7224B09826AF}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GloToolz.Installer", "GloToolz.Installer\GloToolz.Installer.vdproj", "{350CAEE8-D149-4650-9CFA-162453E9B610}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -27,6 +29,12 @@ Global
 		{6A17B58C-06D5-444F-B842-7224B09826AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A17B58C-06D5-444F-B842-7224B09826AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{6A17B58C-06D5-444F-B842-7224B09826AF}.Release|x86.Build.0 = Release|Any CPU
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.All|Any CPU.ActiveCfg = Release
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.All|x86.ActiveCfg = Release
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.Debug|Any CPU.ActiveCfg = Debug
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.Debug|x86.ActiveCfg = Debug
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.Release|Any CPU.ActiveCfg = Release
+		{350CAEE8-D149-4650-9CFA-162453E9B610}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
