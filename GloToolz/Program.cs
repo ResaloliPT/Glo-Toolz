@@ -1,8 +1,8 @@
-﻿using Glo_Toolz.UI.Forms;
+﻿using GloToolz.UI.Forms;
 using System;
 using System.Windows.Forms;
 
-namespace Glo_Toolz
+namespace GloToolz
 {
     public static class Program
     {

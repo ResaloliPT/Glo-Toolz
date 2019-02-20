@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Glo_Toolz.UI.Forms
+namespace GloToolz.UI.Forms
 {
     public partial class Login : Form
     {
