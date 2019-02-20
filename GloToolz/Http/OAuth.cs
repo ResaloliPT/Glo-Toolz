@@ -20,7 +20,6 @@ namespace GloToolz.Http
             string clientID = ConfigurationManager.AppSettings["OAUTH_CLIENTID"];
 
             //Test Sensitive Line in line bellow
-            var some = "this is seansitive"; //GITRM
 
             //Generate Random state
             string state = randomB64(32);
