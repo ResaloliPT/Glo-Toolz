@@ -18,7 +18,10 @@ namespace GloToolz.Http
             string redirect_URL = ConfigurationManager.AppSettings["OAUTH_REDIRECT"];
             string gitkraken_authorize_URL = ConfigurationManager.AppSettings["GITKRAKEN_AUTHORIZE"];
             string clientID = ConfigurationManager.AppSettings["OAUTH_CLIENTID"];
-            
+
+            //Test Sensitive Line in line bellow
+            var some = "thisis sensitive"; /*GITRM*/
+
             //Generate Random state
             string state = randomB64(32);
 
