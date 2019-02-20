@@ -19,8 +19,6 @@ namespace GloToolz.Http
             string gitkraken_authorize_URL = ConfigurationManager.AppSettings["GITKRAKEN_AUTHORIZE"];
             string clientID = ConfigurationManager.AppSettings["OAUTH_CLIENTID"];
 
-            //Test Sensitive Line in line bellow
-
             //Generate Random state
             string state = randomB64(32);
 
