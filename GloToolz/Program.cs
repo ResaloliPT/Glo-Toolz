@@ -1,5 +1,4 @@
-﻿using GloToolz.Http;
-using GloToolz.UI.Forms;
+﻿using GloToolz.UI.Forms;
 using System;
 using System.Configuration;
 using System.Windows.Forms;
@@ -17,7 +16,6 @@ namespace GloToolz
             EncryptConfigSettings();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            OAuth.Authenticate();
 
             Application.Run(new Login());
         }
@@ -34,7 +32,7 @@ namespace GloToolz
                     {
                         section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
                         section.SectionInformation.ForceSave = true;
-                        //config.Save(ConfigurationSaveMode.Full);
+                        config.Save(ConfigurationSaveMode.Full);
                     }
                 }
             }
