@@ -15,5 +15,10 @@ namespace GloToolz.UI.Forms
         {
             InitializeComponent();
         }
+
+        private void radMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

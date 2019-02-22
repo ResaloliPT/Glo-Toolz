@@ -9,7 +9,10 @@ namespace GloToolz.Http
         public static async Task<TGKEntity> MakeRequest<TGKEntity>(HttpRequest message) where TGKEntity : GKEntity
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.SendAsync(message.GetRequestMessage());
+
+            var requestMessage = message.GetRequestMessage();
+
+            HttpResponseMessage response = await client.SendAsync(requestMessage);
 
             return await response.Content.ReadAsAsync<TGKEntity>();
         }

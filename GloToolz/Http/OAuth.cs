@@ -4,6 +4,7 @@ using GloToolz.Integration.GitKraken.Entities;
 using GloToolz.Integration.GitKraken.Segments;
 using System;
 using System.Configuration;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
@@ -60,6 +61,8 @@ namespace GloToolz.Http
             }
             catch (HttpListenerException)
             {
+                SendPage("UI\\HTML\\OAuthErrorPage.html", requestContext.Response);
+                    requestContext.Response.StatusCode = 500; ;
                 LastErrorMessage = "You took too long to login. Try again.";
 
                 return;
@@ -69,12 +72,14 @@ namespace GloToolz.Http
 
             if (!state.Equals(oAuthResponse.State))
             {
+                SendPage("UI\\HTML\\OAuthErrorPage.html", requestContext.Response);
                 requestContext.Response.StatusCode = 500;
 
                 throw new OAuthException("Error Validation Token. Please Try Again.");
             }
             else
             {
+                SendPage("UI\\HTML\\OAuthSuccessPage.html", requestContext.Response);
                 requestContext.Response.StatusCode = 200;
             }
 
@@ -94,6 +99,19 @@ namespace GloToolz.Http
         }
 
         #region Helpers
+        private static void SendPage(string fileDir, HttpListenerResponse response)
+        {
+            var page = File.ReadAllText(fileDir);
+            var buffer = Encoding.UTF8.GetBytes(page);
+            response.ContentLength64 = buffer.Length;
+            var responseOutput = response.OutputStream;
+            Task responseTask = responseOutput.WriteAsync(buffer, 0, buffer.Length).ContinueWith((task) =>
+            {
+                responseOutput.Close();
+                _listener.Stop();
+            });
+        }
+
         private static void StopListening(object src, ElapsedEventArgs e)
         {
             _listener.Stop();

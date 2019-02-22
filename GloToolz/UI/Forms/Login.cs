@@ -34,7 +34,10 @@ namespace GloToolz.UI.Forms
             }
 
             Hide();
-            new MainForm().Show();
+            var mainForm = new MainForm();
+
+            mainForm.Show();
+            mainForm.Focus();
         }
 
         private void UI_UPDATE_TIMER_Tick(object sender, EventArgs e)

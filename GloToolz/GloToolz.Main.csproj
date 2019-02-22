@@ -13,9 +13,11 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -41,6 +43,8 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -64,6 +68,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,8 +78,17 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.WinControls, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.Desert, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.FluentDark, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.Material, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
@@ -88,6 +102,7 @@
     <Compile Include="Integration\GitKraken\Entities\GKEntity.cs" />
     <Compile Include="Integration\GitKraken\Entities\OAuthCodeEntity.cs" />
     <Compile Include="Integration\GitKraken\Entities\OAuthTokenEntity.cs" />
+    <Compile Include="Integration\GitKraken\OAuth.cs" />
     <Compile Include="Integration\GitKraken\Segments\AccessTokenSegment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +154,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit_1205463.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\HTML\OAuthErrorPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\HTML\OAuthSuccessPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

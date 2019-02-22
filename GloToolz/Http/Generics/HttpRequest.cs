@@ -17,17 +17,25 @@ namespace GloToolz.Http.Generics
 
         public readonly NameValueCollection QueryString;
 
+        private readonly OAuthTokenEntity AccessToken;
+
         public HttpRequest(string requestURL, HttpMethod method, TContent content, NameValueCollection queryString, OAuthTokenEntity token)
         {
             RequestURL = requestURL ?? throw new ArgumentNullException(nameof(requestURL));
             Method = method;
             Content = content;
             QueryString = queryString == null ? new NameValueCollection() : queryString;
+            AccessToken = token;
         }
 
         public override HttpRequestMessage GetRequestMessage()
         {
             var request = new HttpRequestMessage(Method, RequestURL);
+
+            if (false == (AccessToken == null))
+            {
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(AccessToken.TokenType, AccessToken.AccessToken);
+            }
 
             if (Content != null)
             {
